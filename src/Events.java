@@ -1,6 +1,7 @@
 
 
-import java.awt.*;
+import javafx.scene.paint.Color;
+
 import java.util.*;
 import java.util.List;
 
@@ -34,6 +35,27 @@ public class Events {
     public void setDescription(String description) {this.description = description; }
     public int getId(){return this.id;}
 
+    @Override
+    public int hashCode()
+    {
+        int code = 18;
+        code = 36*code+title.hashCode();
+        code = 36*code+description.hashCode();
+
+        return code;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof User)) {
+            return false;
+        }
+
+        Events input = (Events)o;
+
+        return this.title.equals(input.getTitle()) &&
+                this.description.equals(input.getDescription());
+    }
 
 
 }

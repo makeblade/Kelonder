@@ -102,7 +102,7 @@ public class KDate {
         fullDate = this.year + "/" + (month>9 ? month : "0"+ month) ;
         fullDate += "/";
         fullDate += (day > 9 ? day : "0"+ day);
-        fullDate += "/";
+        fullDate += "/ ";
         fullDate += (hour>9 ? hour : "0"+ hour);
         fullDate += "/";
         fullDate += (minute>9 ? minute: "0"+ minute);
@@ -113,6 +113,12 @@ public class KDate {
     public String getCurrentDate()
     {
         return fullDate;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.fullDate;
     }
 
 }

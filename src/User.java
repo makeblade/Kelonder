@@ -1,8 +1,10 @@
 import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class User
 {
@@ -10,7 +12,7 @@ public class User
     private int id;
     private String date;
     private Color color;
-    private LinkedList<Events> events;
+    private Set<Events> events;
     private String password;
 
     public User()
@@ -19,8 +21,17 @@ public class User
         this.id = this.name.hashCode() + 1;
         this.date = new KDate().getCurrentDate();
         this.color = Color.WHITE;
-        this.events = null;
+        this.events = new HashSet<>();
         this.password = "";
+    }
+    public User(String name, String pass)
+    {
+        this.name = name;
+        this.id = this.name.hashCode() + 1;
+        this.date = new KDate().getCurrentDate();
+        this.color = Color.WHITE;
+        this.events = new HashSet<>();
+        this.password = pass;
     }
 
     public String getName()
@@ -48,6 +59,19 @@ public class User
         this.events.add(event);
     }
 
+    public boolean removeEvent(String name){
+        for(Events e : events)
+            if(e.getTitle().equals(name))
+                return events.remove(e);
+        return false;
+    }
+    public boolean removeEvent(Event event){
+        for(Events e : events)
+            if(e.equals(event))
+                return events.remove(e);
+        return false;
+    }
+
     public void clearEvents(){
         this.events.clear();
     }
@@ -56,4 +80,5 @@ public class User
     {
         this.password = password;
     }
+
 }
