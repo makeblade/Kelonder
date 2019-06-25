@@ -1,4 +1,6 @@
-import java.util.Date;
+package Utilities;
+
+import Utilities.KDate;
 
 public class TimeInterval {
     private KDate start;
