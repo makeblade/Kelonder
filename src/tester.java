@@ -1,3 +1,4 @@
+import GUI.Log_in;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -14,9 +15,9 @@ public class tester extends Application {
 
         Stage stage = new Stage();
 
-        Pane pane = new Pane();
+        Log_in log_in_page = new Log_in();
 
-        Scene scene = new Scene(pane, 500, 500);
+        Scene scene = log_in_page.getScene();
         stage.setScene(scene);
         stage.show();
 
